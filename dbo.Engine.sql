@@ -1,0 +1,22 @@
+USE [OilChange]
+GO
+
+/****** Object:  Table [dbo].[Engine]    Script Date: 4/3/2014 1:11:29 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Engine](
+	[EngineID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Cilinders] [int] NULL,
+	[OilusedQuarters] [int] NULL,
+ CONSTRAINT [PK_Engine] PRIMARY KEY CLUSTERED 
+(
+	[EngineID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
