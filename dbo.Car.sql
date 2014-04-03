@@ -1,0 +1,31 @@
+USE [OilChange]
+GO
+
+/****** Object:  Table [dbo].[Car]    Script Date: 4/3/2014 1:10:34 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Car](
+	[CarID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[EngineID] [int] NULL,
+	[Make] [nvarchar](20) NULL,
+	[Model] [nvarchar](20) NULL,
+	[Year] [int] NULL,
+ CONSTRAINT [PK_Car_1] PRIMARY KEY CLUSTERED 
+(
+	[CarID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Car]  WITH CHECK ADD  CONSTRAINT [FK_Car_Engine1] FOREIGN KEY([EngineID])
+REFERENCES [dbo].[Engine] ([EngineID])
+GO
+
+ALTER TABLE [dbo].[Car] CHECK CONSTRAINT [FK_Car_Engine1]
+GO
+
