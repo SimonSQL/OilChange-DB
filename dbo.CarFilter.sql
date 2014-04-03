@@ -1,0 +1,36 @@
+USE [OilChange]
+GO
+
+/****** Object:  Table [dbo].[CarFilter]    Script Date: 4/3/2014 1:10:50 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CarFilter](
+	[CarFilterID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[CarID] [int] NULL,
+	[FilterID] [int] NULL,
+ CONSTRAINT [PK_CarFilter] PRIMARY KEY CLUSTERED 
+(
+	[CarFilterID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[CarFilter]  WITH CHECK ADD  CONSTRAINT [FK_CarFilter_Car] FOREIGN KEY([CarID])
+REFERENCES [dbo].[Car] ([CarID])
+GO
+
+ALTER TABLE [dbo].[CarFilter] CHECK CONSTRAINT [FK_CarFilter_Car]
+GO
+
+ALTER TABLE [dbo].[CarFilter]  WITH CHECK ADD  CONSTRAINT [FK_CarFilter_Filter] FOREIGN KEY([FilterID])
+REFERENCES [dbo].[Filter] ([FilterID])
+GO
+
+ALTER TABLE [dbo].[CarFilter] CHECK CONSTRAINT [FK_CarFilter_Filter]
+GO
+
