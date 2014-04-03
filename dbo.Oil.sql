@@ -1,0 +1,24 @@
+USE [OilChange]
+GO
+
+/****** Object:  Table [dbo].[Oil]    Script Date: 4/3/2014 1:12:51 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Oil](
+	[OilID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Brand] [nvarchar](10) NULL,
+	[Grade] [nvarchar](50) NULL,
+	[PricePerQuart] [money] NULL,
+	[QtyStock] [int] NULL,
+ CONSTRAINT [PK_Oil] PRIMARY KEY CLUSTERED 
+(
+	[OilID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
